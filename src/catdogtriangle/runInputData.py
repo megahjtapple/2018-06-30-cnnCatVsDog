@@ -1,6 +1,7 @@
 import input_data
+import directory
 
-train_dir = '/userDocs/user000/workspaces/2018-06-30-tensorflowCNN/Data/catVsDog/train/'
+train_dir = directory.train_dir
 train, train_label = input_data.get_files(train_dir)
 
 #print(train_label)

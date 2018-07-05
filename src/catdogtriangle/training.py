@@ -31,6 +31,7 @@ import numpy as np
 import tensorflow as tf
 import input_data
 import model
+import directory
 
 #%%
 
@@ -47,8 +48,8 @@ learning_rate = 0.0001 # with current parameters, it is suggested to use learnin
 def run_training():
 
     # you need to change the directories to yours.
-    train_dir = '/userDocs/user000/workspaces/2018-06-30-tensorflowCNN/Data/catVsDog/train/'
-    logs_train_dir = '/userDocs/user000/workspaces/2018-06-30-tensorflowCNN/Data/catVsDog/trainedModels/'
+    train_dir = directory.train_dir
+    logs_train_dir = directory.logs_train_dir
 
     # train is image_list, train_label is label_list.
     train, train_label = input_data.get_files(train_dir)
@@ -123,7 +124,7 @@ def run_training():
 #    '''
 #
 #    # you need to change the directories to yours.
-#    train_dir = '/home/kevin/tensorflow/cats_vs_dogs/data/train/'
+#    train_dir = directory.train_dir
 #    train, train_label = input_data.get_files(train_dir)
 #    image_array = get_one_image(train)
 #
@@ -141,7 +142,7 @@ def run_training():
 #        x = tf.placeholder(tf.float32, shape=[208, 208, 3])
 #
 #        # you need to change the directories to yours.
-#        logs_train_dir = '/home/kevin/tensorflow/cats_vs_dogs/logs/train/'
+#        logs_train_dir = directory.logs_train_dir
 #
 #        saver = tf.train.Saver()
 #
