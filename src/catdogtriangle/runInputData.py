@@ -1,7 +1,7 @@
 import input_data
-import directory
+import proj_constants
 
-train_dir = directory.train_dir
+train_dir = proj_constants.train_dir
 train, train_label = input_data.get_files(train_dir)
 
 #print(train_label)

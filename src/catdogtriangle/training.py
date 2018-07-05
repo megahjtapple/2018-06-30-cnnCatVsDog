@@ -31,11 +31,10 @@ import numpy as np
 import tensorflow as tf
 import input_data
 import model
-import directory
+import proj_constants
 
 #%%
-
-N_CLASSES = 2
+N_CLASSES = proj_constants.classes
 IMG_W = 208  # resize the image, if the input image is too large, training will be very slow.
 IMG_H = 208
 BATCH_SIZE = 16
@@ -48,8 +47,8 @@ learning_rate = 0.0001 # with current parameters, it is suggested to use learnin
 def run_training():
 
     # you need to change the directories to yours.
-    train_dir = directory.train_dir
-    logs_train_dir = directory.logs_train_dir
+    train_dir = proj_constants.train_dir
+    logs_train_dir = proj_constants.logs_train_dir
 
     # train is image_list, train_label is label_list.
     train, train_label = input_data.get_files(train_dir)

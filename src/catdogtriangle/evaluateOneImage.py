@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 import input_data
 import model
-import directory
+import proj_constants
 
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -27,13 +27,13 @@ def evaluate_one_image():
     '''
 
     # you need to change the directories to yours.
-    train_dir = directory.train_dir
+    train_dir = proj_constants.train_dir
     train, train_label = input_data.get_files(train_dir)
     image_array = get_one_image(train)
 
     with tf.Graph().as_default():
         BATCH_SIZE = 1
-        N_CLASSES = 2
+        N_CLASSES = proj_constants.classes
 
         image = tf.cast(image_array, tf.float32)
         image = tf.image.per_image_standardization(image)
@@ -45,7 +45,7 @@ def evaluate_one_image():
         x = tf.placeholder(tf.float32, shape=[208, 208, 3])
 
         # you need to change the directories to yours.
-        logs_train_dir = directory.logs_train_dir
+        logs_train_dir = proj_constants.logs_train_dir
 
         saver = tf.train.Saver()
 
@@ -61,6 +61,7 @@ def evaluate_one_image():
                 print('No checkpoint file found')
 
             prediction = sess.run(logit, feed_dict={x: image_array})
+            print(prediction)
             max_index = np.argmax(prediction)
             if max_index==0:
                 print('This is a cat with possibility %.6f' %prediction[:, 0])

@@ -39,7 +39,7 @@
 import tensorflow as tf
 import numpy as np
 import os
-import directory
+import proj_constants
 import input_data
 import matplotlib.pyplot as plt
 
@@ -48,7 +48,7 @@ CAPACITY = 256
 IMG_W = 208
 IMG_H = 208
 
-image_list, label_list = input_data.get_files(directory.train_dir)
+image_list, label_list = input_data.get_files(proj_constants.train_dir)
 image_batch, label_batch = input_data.get_batch(image_list, label_list, IMG_W, IMG_H, BATCH_SIZE, CAPACITY)
 
 with tf.Session() as sess:

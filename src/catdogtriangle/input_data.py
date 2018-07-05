@@ -36,12 +36,12 @@
 import tensorflow as tf
 import numpy as np
 import os
-import directory
+import proj_constants
 
 #%%
 
 # you need to change this to your data directory
-train_dir = directory.train_dir
+train_dir = proj_constants.train_dir
 
 def get_files(file_dir):
     '''

@@ -1,2 +1,0 @@
-train_dir = '/userDocs/user000/workspaces/2018-06-30-tensorflowCNN/Data/catDogTriangle/train/'
-logs_train_dir = '/userDocs/user000/workspaces/2018-06-30-tensorflowCNN/Data/catDogTriangle/trainedModels/'

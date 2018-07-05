@@ -3,9 +3,9 @@ import tensorflow as tf
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-import directory
+import proj_constants
 
-train_dir = directory.train_dir
+train_dir = proj_constants.train_dir
 
 BATCH_SIZE = 2
 CAPACITY = 16
