@@ -64,8 +64,10 @@ def evaluate_one_image():
             max_index = np.argmax(prediction)
             if max_index==0:
                 print('This is a cat with possibility %.6f' %prediction[:, 0])
-            else:
+            elif max_index==1:
                 print('This is a dog with possibility %.6f' %prediction[:, 1])
+            else:
+                print('This is a triangle with possibility %.6f' %prediction[:, 1])
             plt.imshow(image_array)
             plt.show()
 
