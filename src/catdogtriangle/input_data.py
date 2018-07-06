@@ -66,7 +66,7 @@ def get_files(file_dir):
             label_dogs.append(1)
         else:
             triangles.append(file_dir + file)
-            label_triangles.append(0.5)
+            label_triangles.append(2)
     print('There are %d cats\nThere are %d dogs\nThere are %d triangles' %(len(cats), len(dogs), len(triangles)))
 
     image_list = np.hstack((cats, dogs, triangles))
@@ -78,7 +78,7 @@ def get_files(file_dir):
 
     image_list = list(temp[:, 0])
     label_list = list(temp[:, 1])
-    label_list = [float(i) for i in label_list]
+    label_list = [int(i) for i in label_list]
 
 
     return image_list, label_list
@@ -114,7 +114,11 @@ def get_batch(image, label, image_W, image_H, batch_size, capacity):
     # data argumentation should go to here
     ######################################
 
-    image = tf.image.resize_image_with_crop_or_pad(image, image_W, image_H)
+    #This is the original method. However, instead of cropping and padding,
+    #I prefer resize.
+    #image = tf.image.resize_image_with_crop_or_pad(image, image_W, image_H)
+    image = tf.image.convert_image_dtype(image, dtype=tf.float32)
+    image = tf.image.resize_images(image, (image_W, image_H), method=0)
 
     # if you want to test the generated batches of images, you might want to comment the following line.
     # 如果想看到正常的图片，请注释掉111行（标准化）和 126行（image_batch = tf.cast(image_batch, tf.float32)）

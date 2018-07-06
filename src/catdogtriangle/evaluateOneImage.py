@@ -63,12 +63,17 @@ def evaluate_one_image():
             prediction = sess.run(logit, feed_dict={x: image_array})
             print(prediction)
             max_index = np.argmax(prediction)
+            prediction_final = ""
             if max_index==0:
                 print('This is a cat with possibility %.6f' %prediction[:, 0])
+                prediction_final = "cat"
             elif max_index==1:
                 print('This is a dog with possibility %.6f' %prediction[:, 1])
+                prediction_final = "dog"
             else:
-                print('This is a triangle with possibility %.6f' %prediction[:, 1])
+                print('This is a flower with possibility %.6f' %prediction[:, 1])
+                prediction_final = "flower"
+            print("\n\nThis is " + prediction_final)
             plt.imshow(image_array)
             plt.show()
 
