@@ -43,7 +43,7 @@ import proj_constants
 import input_data
 import matplotlib.pyplot as plt
 
-BATCH_SIZE = 2
+BATCH_SIZE = 10
 CAPACITY = 256
 IMG_W = 208
 IMG_H = 208
